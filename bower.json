@@ -1,0 +1,25 @@
+{
+  "name": "ng-test-park",
+  "version": "0.0.2",
+  "description": "AngularJs Test Container",
+  "authors": [
+    "Davide Fiorello"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/codeflyer/ng-test-park",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "Gruntfile.js"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.3.13"
+  },
+  "dependencies": {
+    "angular": "~1.3.13",
+    "angular-sanitize": "~1.3.13"
+  }
+}
