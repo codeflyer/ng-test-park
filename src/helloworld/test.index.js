@@ -1,11 +1,5 @@
 'use strict';
 
-function hasClass(element, cls) {
-  return element.getAttribute('class').then(function(classes) {
-    return classes.split(' ').indexOf(cls) !== -1;
-  });
-}
-
 describe('Hello world!!', function() {
 
   var url = 'http://localhost:9000/helloworld';

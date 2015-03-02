@@ -1,21 +1,25 @@
-angular.module('test-park', []);
+(function() {
+  angular.module('tp-watch', []);
 
-angular.module('test-park').controller('watchCtrl', watchCtrl);
+  angular.module('tp-watch').controller('watchCtrl', watchCtrl);
 
-function watchCtrl($scope) {
-  $scope.result = 'not clicked';
-  $scope.resultWatch = 'not clicked w';
+  function watchCtrl($scope) {
+    $scope.result = 'not clicked';
+    $scope.resultWatch = 'not clicked w';
 
-  $scope.clickMe = function() {
-    $scope.result = 'clicked';
-  };
+    $scope.clickMe = function() {
+      $scope.result = 'clicked';
+    };
 
-  $scope.disableWatch = function() {
-    disable();
-  };
+    $scope.disableWatch = function() {
+      disable();
+    };
 
-  var disable = $scope.$watch('result', function(newVal, oldVal, scope) {
-    if (newVal === oldVal) return;
-    scope.resultWatch = 'watched';
-  })
-}
+    var disable = $scope.$watch('result', function(newVal, oldVal, scope) {
+      if (newVal === oldVal) {
+        return;
+      }
+      scope.resultWatch = 'watched';
+    });
+  }
+})();

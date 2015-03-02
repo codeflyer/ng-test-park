@@ -104,15 +104,26 @@ module.exports = function(grunt) {
         configFile: 'test/protractor.conf.js'
       },
       run: {}
+    },
+    karma: {
+      unit: {
+        configFile: 'test/karma.conf.js',
+        singleRun: true
+      }
     }
   });
 
   grunt.registerTask('default', ['jshint', 'jscs']);
 
-  grunt.registerTask('test', [
+  grunt.registerTask('unittest', [
+    'clean:server',
+    'connect:test',
+    'karma'
+  ]);
+
+  grunt.registerTask('e2e', [
     'clean:server',
     'connect:protractor',
-    'connect:test',
     'protractor:run'
   ]);
 };

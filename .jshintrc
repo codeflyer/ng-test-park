@@ -1,7 +1,13 @@
 {
   "globals": {
-    "Promise": true
+    "Promise": true,
+    "angular": false,
+    "browser": false,
+    "inject": false,
+    "element" : false,
+    "by" : false
   },
+  "jasmine": true,
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,

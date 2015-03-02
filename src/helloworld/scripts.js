@@ -1,7 +1,9 @@
-angular.module('test-park', []);
+(function() {
+  angular.module('tp-helloworld', []);
 
-angular.module('test-park').controller('helloWorldCtrl', helloWorldCtrl);
+  angular.module('tp-helloworld').controller('helloWorldCtrl', helloWorldCtrl);
 
-function helloWorldCtrl($scope) {
-  $scope.helloMessage = 'Hello World';
-}
+  function helloWorldCtrl($scope) {
+    $scope.helloMessage = 'Hello World';
+  }
+})();
