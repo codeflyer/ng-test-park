@@ -13,14 +13,14 @@ describe('watchEqualityCtrl Unit test', function() {
   }));
 
   it('check variables', function() {
-    expect(scope.struct.result).toBe('not clicked');
-    expect(scope.resultWatch).toBe('not clicked w');
+    scope.struct.result.should.be.equal('not clicked');
+    scope.resultWatch.should.be.equal('not clicked w');
   });
 
   it('click and check variables', function() {
     scope.clickMe();
     scope.$digest();
-    expect(scope.struct.result).toBe('clicked');
-    expect(scope.resultWatch).toBe('watched');
+    scope.struct.result.should.be.equal('clicked');
+    scope.resultWatch.should.be.equal('watched');
   });
 });

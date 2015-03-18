@@ -13,23 +13,23 @@ describe('WatchCtrl Unit test', function() {
   }));
 
   it('check variables', function() {
-    expect(scope.result).toBe('not clicked');
-    expect(scope.resultWatch).toBe('not clicked w');
+    scope.result.should.be.equal('not clicked');
+    scope.resultWatch.should.be.equal('not clicked w');
   });
 
   it('click and check variables', function() {
     scope.clickMe();
     scope.$digest();
-    expect(scope.result).toBe('clicked');
-    expect(scope.resultWatch).toBe('watched');
+    scope.result.should.be.equal('clicked');
+    scope.resultWatch.should.be.equal('watched');
   });
 
   it('disable watcher, click and check variables', function() {
     scope.disableWatch();
     scope.clickMe();
     scope.$digest();
-    expect(scope.result).toBe('clicked');
-    expect(scope.resultWatch).toBe('not clicked w');
+    scope.result.should.be.equal('clicked');
+    scope.resultWatch.should.be.equal('not clicked w');
   });
 
 });

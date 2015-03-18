@@ -2,7 +2,7 @@
 
 describe('Watch with object equality', function() {
 
-  var url = 'http://localhost:9000/watch2';
+  var url = 'http://localhost:9000/watchEquality';
   // Initialize the controller and a mock scope
   beforeEach(function() {
     browser.get(url);

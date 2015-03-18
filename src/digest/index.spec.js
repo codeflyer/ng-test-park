@@ -1,8 +1,6 @@
 'use strict';
-
 describe('DigestCtrl Unit test', function() {
   var scope;
-
   beforeEach(module('tp-digest'));
 
   beforeEach(inject(function($controller, $rootScope) {
@@ -13,13 +11,13 @@ describe('DigestCtrl Unit test', function() {
   }));
 
   it('check variables after init', function() {
-    expect(scope.helloMessage).toBe('Hello');
+    scope.helloMessage.should.be.equal('Hello');
   });
 
   it('check variables after first digest', function(done) {
     scope.$digest();
     setTimeout(function() {
-      expect(scope.helloMessage).toBe('World');
+      scope.helloMessage.should.be.equal('World');
       done();
     }, 200);
   });

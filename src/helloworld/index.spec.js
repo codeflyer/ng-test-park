@@ -13,7 +13,6 @@ describe('Hello world!!', function() {
   }));
 
   it('check a variable', function() {
-    expect(scope.helloMessage).toBe('Hello World');
+    scope.helloMessage.should.be.equal('Hello World');
   });
-
 });
