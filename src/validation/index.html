@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html ng-app="tp-validation">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>NGTestPark - validation</title>
+    <style type="text/css">
+        table {
+            border-spacing: 0px;
+            border: 1px solid #e2e2e2;
+        }
+
+        td {
+            border: 1px solid #e2e2e2;
+            height: 80px;
+        }
+
+        td.ok {
+            background-color: #aebca1;
+        }
+
+        td.error {
+            background-color: #df6d6f;
+        }
+
+        .cell {
+            width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body ng-controller="validationController as vm">
+
+<h1>Validation</h1>
+
+<form name="vm.userForm" novalidate>
+    <table>
+        <tr>
+            <th>ValidationType</th>
+            <th style="width:80px;"></th>
+            <th style="width:80px;">Valid</th>
+            <th style="width:80px;">Invalid</th>
+            <th style="width:80px;">Pristine</th>
+            <th style="width:80px;">Dirty</th>
+            <th style="width:80px;">Submitted</th>
+            <th style="width:250px;">Error</th>
+        </tr>
+        <tr>
+            <td>ALL THE FORM</td>
+            <td></td>
+            <td class="cell {{vm.userForm.$valid|color}}">
+                {{vm.userForm.$valid}}
+            </td>
+            <td class="cell {{vm.userForm.$invalid|color}}">
+                {{vm.userForm.$invalid}}
+            </td>
+            <td class="cell {{vm.userForm.$pristine|color}}">
+                {{vm.userForm.$pristine}}
+            </td>
+            <td class="cell {{vm.userForm.$dirty|color}}">
+                {{vm.userForm.$dirty}}
+            </td>
+            <td class="cell {{vm.userForm.$submitted|color}}">
+                {{vm.userForm.$submitted}}
+            </td>
+            <td class="cell"></td>
+        </tr>
+        <tr>
+            <td>Required</td>
+            <td><input type="text" name="fieldRequired" ng-model="vm.user.name"
+                       required/></td>
+            <td class="cell {{vm.userForm.fieldRequired.$valid|color}}">
+                {{vm.userForm.fieldRequired.$valid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldRequired.$invalid|color}}">
+                {{vm.userForm.fieldRequired.$invalid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldRequired.$pristine|color}}">
+                {{vm.userForm.fieldRequired.$pristine}}
+            </td>
+            <td class="cell {{vm.userForm.fieldRequired.$dirty|color}}">
+                {{vm.userForm.fieldRequired.$dirty}}
+            </td>
+            <td class="cell"></td>
+            <td class="cell">{{vm.userForm.fieldRequired.$error}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="fieldEmail" ng-model="vm.user.name"/></td>
+            <td class="cell {{vm.userForm.fieldEmail.$valid|color}}">
+                {{vm.userForm.fieldEmail.$valid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldEmail.$invalid|color}}">
+                {{vm.userForm.fieldEmail.$invalid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldEmail.$pristine|color}}">
+                {{vm.userForm.fieldEmail.$pristine}}
+            </td>
+            <td class="cell {{vm.userForm.fieldEmail.$dirty|color}}">
+                {{vm.userForm.fieldEmail.$dirty}}
+            </td>
+            <td class="cell"></td>
+            <td class="cell">{{vm.userForm.fieldEmail.$error}}</td>
+        </tr>
+        <tr>
+            <td>Text length (3,8)</td>
+            <td><input type="text" name="fieldTextLength" ng-minlength="3" ng-maxlength="8" ng-model="vm.user.name"/></td>
+            <td class="cell {{vm.userForm.fieldTextLength.$valid|color}}">
+                {{vm.userForm.fieldTextLength.$valid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldTextLength.$invalid|color}}">
+                {{vm.userForm.fieldTextLength.$invalid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldTextLength.$pristine|color}}">
+                {{vm.userForm.fieldTextLength.$pristine}}
+            </td>
+            <td class="cell {{vm.userForm.fieldTextLength.$dirty|color}}">
+                {{vm.userForm.fieldTextLength.$dirty}}
+            </td>
+            <td class="cell"></td>
+            <td class="cell">{{vm.userForm.fieldTextLength.$error}}</td>
+        </tr>
+        <tr>
+            <td>Number (10,100)</td>
+            <td><input type="number" name="fieldNumber" ng-min="10" ng-max="100" ng-model="vm.user.name"/></td>
+            <td class="cell {{vm.userForm.fieldNumber.$valid|color}}">
+                {{vm.userForm.fieldNumber.$valid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldNumber.$invalid|color}}">
+                {{vm.userForm.fieldNumber.$invalid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldNumber.$pristine|color}}">
+                {{vm.userForm.fieldNumber.$pristine}}
+            </td>
+            <td class="cell {{vm.userForm.fieldNumber.$dirty|color}}">
+                {{vm.userForm.fieldNumber.$dirty}}
+            </td>
+            <td class="cell"></td>
+            <td class="cell">{{vm.userForm.fieldNumber.$error}}</td>
+        </tr>
+        <tr>
+            <td>Company User (c12345)</td>
+            <td><input type="text" my-company-user-name name="fieldCompanyUserName" ng-model="vm.user.companyUserName"/></td>
+            <td class="cell {{vm.userForm.fieldCompanyUserName.$valid|color}}">
+                {{vm.userForm.fieldNumber.$valid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldCompanyUserName.$invalid|color}}">
+                {{vm.userForm.fieldNumber.$invalid}}
+            </td>
+            <td class="cell {{vm.userForm.fieldCompanyUserName.$pristine|color}}">
+                {{vm.userForm.fieldNumber.$pristine}}
+            </td>
+            <td class="cell {{vm.userForm.fieldCompanyUserName.$dirty|color}}">
+                {{vm.userForm.fieldNumber.$dirty}}
+            </td>
+            <td class="cell"></td>
+            <td class="cell">{{vm.userForm.fieldCompanyUserName.$error}}</td>
+        </tr>
+    </table>
+</form>
+
+{{vm.user.name}}
+<pre>
+    ng-valid is set if the form is valid.
+    ng-invalid is set if the form is invalid.
+    ng-pristine is set if the form is pristine.
+    ng-dirty is set if the form is dirty.
+    ng-submitted is set if the form was submitted.
+</pre>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="./scripts.js"></script>
+</body>
+</html>

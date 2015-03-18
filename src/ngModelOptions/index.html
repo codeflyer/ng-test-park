@@ -1,17 +1,59 @@
 <!DOCTYPE html>
-<html ng-app="tp-validation">
+<html ng-app="tp-ng-model-option">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>NGTestPark - validation</title>
+    <title>NGTestPark - ngModelOptions</title>
 </head>
-<body ng-controller="validationController as vm">
+<body ng-controller="ngModelOptionController as vm">
 
-<h1>Validation elements</h1>
 <form name="vm.userForm1">
+    <h1>Update on blur</h1>
+    Say hello to
     <input type="text" name="userName"
            ng-model="vm.user.name"
            ng-model-options="{ updateOn: 'blur' }"
            ng-keyup="vm.cancel($event)"/><br/>
+</form>
+
+<form name="vm.userForm2">
+    <h1>Update on debounce</h1>
+    Say hello to
+    <input type="text" name="userName"
+           ng-model="vm.user.name"
+           ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }"/><br/>
+</form>
+
+<form name="vm.userForm3">
+    <h1>Update on blur + use getter/setter</h1>
+
+    <p>Do un uppercase on blur</p>
+    Say hello to
+    <input type="text" name="userName"
+           ng-model="vm.userGS.name"
+           ng-model-options="{ updateOn: 'blur', getterSetter: true }"
+           ng-keyup="vm.cancelGS($event)"/><br/>
+</form>
+
+<h4>
+    {{vm.emotionalMummy}}
+</h4>
+
+<form name="vm.userForm4" novalidate>
+    <h1>Allow invalid</h1>
+
+    <p>Do un uppercase on blur</p>
+    Say hello to
+    <input type="text" name="userName"
+           ng-model="vm.user.name"
+           ng-model-options="{ allowInvalid: true}"
+           ng-minlength="3" ng-maxlength="8"/> (allow)<br/><br/>
+    Say hello to
+    <input type="text" name="userName2"
+           ng-model="vm.user.name"
+           ng-model-options="{ allowInvalid: false}"
+           ng-minlength="3" ng-maxlength="8"/> (not allow)<br/>
+    <br/>
+    Current <b>{{vm.user.name}}</b>
 </form>
 
 <script src="/bower_components/angular/angular.js"></script>
